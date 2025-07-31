@@ -1,0 +1,57 @@
+1. To check default shell
+echo $0
+
+2. To check all available shells
+cat /etc/shells
+
+3. To change the default shell just type the shell name and enter
+bash / sh
+
+4. SHEBANG (Not mendatory)
+#!/bin/bash
+
+5. chmod
+| User Type | Meaning                                  |
+| --------- | ---------------------------------------- |
+| **u**     | User (owner of the file)                 |
+| **g**     | Group (users in the file's group)        |
+| **o**     | Others (all other users)                 |
+| **a**     | All of the above (user + group + others) |
+
+| Permission  | Symbol | Meaning                           |
+| ----------- | ------ | --------------------------------- |
+| **Read**    | `r`    | View file contents / list dir     |
+| **Write**   | `w`    | Modify file / create files in dir |
+| **Execute** | `x`    | Run file / enter dir              |
+
+-rwxr-xr--  1 user group 1234 Jul 30 12:00 file.sh
+- rwx r-x r-- 
+|  |   |   |
+|  |   |   └─ Others
+|  |   └───── Group
+|  └───────── Owner
+└──────────── Type: (- = file, d = directory, l = link)
+
+chmod u+x file.sh      # Add execute for owner
+chmod g-w file.sh      # Remove write for group
+chmod o=r file.sh      # Set read-only for others
+chmod a+x script.sh    # Allow everyone to execute
+chmod ug+x file        # Give execute to user and group
+
+| Permission | Value |
+| ---------- | ----- |
+| `r`        | 4     |
+| `w`        | 2     |
+| `x`        | 1     |
+
+So combinations:
+rwx = 4+2+1 = 7
+rw- = 4+2 = 6
+r-- = 4 = 4
+
+chmod 755 file.sh
+# 7 (owner: rwx), 5 (group: r-x), 5 (others: r-x)
+
+6. 
+
+https://www.youtube.com/watch?v=FL7K2A2KH7g
